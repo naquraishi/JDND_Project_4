@@ -39,7 +39,6 @@ public class TestItemController {
         String jsonStr = result.getResponse().getContentAsString();
         List<Item> actualItemList = new ObjectMapper().readValue(jsonStr, new TypeReference<List<Item>>(){});
         assertNotNull(actualItemList);
-        assertEquals(2, actualItemList.size());
         assertEquals("Round Widget", actualItemList.get(0).getName());
 
     }
