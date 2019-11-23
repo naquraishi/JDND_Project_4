@@ -1,11 +1,8 @@
 package com.example.demo.controllers;
 
-import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,9 +48,15 @@ public class UserController {
 	public ResponseEntity<User> createUser(@RequestBody CreateUserRequest createUserRequest) {
 		User user = new User();
 		if (createUserRequest.getPassword().length() < 7) {
-			log.error("Password length less than 7.");
+			log.error("Password length less than 7. User creation failure");
 			return ResponseEntity.badRequest().build();
 		}
+
+		if (!createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())) {
+			log.error("Confirm password is not same as password. User creation failure");
+			return ResponseEntity.badRequest().build();
+		}
+
 
 		user.setUsername(createUserRequest.getUsername());
 
@@ -65,6 +68,7 @@ public class UserController {
 		user.setCart(cart);
 
 		userRepository.save(user);
+		log.info("User created successfully");
 		return ResponseEntity.ok(user);
 	}
 	
