@@ -689,3 +689,4 @@ Verify the connector's configuration, identify and stop any process that's liste
 2019-11-23 18:31:40.190  INFO 16120 --- [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2019-11-23 18:31:40.196  INFO 16120 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2019-11-23 18:31:40.203  INFO 16120 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-11-23 18:45:12.024  WARN 15664 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m30s961ms688µs300ns).
