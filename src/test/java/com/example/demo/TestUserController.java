@@ -1,4 +1,4 @@
-package com.example.demo.controllerstests;
+package com.example.demo;
 
 
 import com.example.demo.TestUtils;
@@ -24,7 +24,7 @@ import static org.mockito.Mockito.when;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class UserControllerTest {
+public class TestUserController {
 
     private UserController userController;
 
